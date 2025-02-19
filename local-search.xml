@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>博文</title>
+    <link href="/2025/02/19/%E5%8D%9A%E6%96%87/"/>
+    <url>/2025/02/19/%E5%8D%9A%E6%96%87/</url>
+    
+    <content type="html"><![CDATA[<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>于今日搭建好博客，现在做一个记录</p><h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>1. </p><h2 id="给文章加封面"><a href="#给文章加封面" class="headerlink" title="给文章加封面"></a>给文章加封面</h2><ol><li><p>在<code>/source/img</code>中放入图片</p></li><li><p>在开头<code>Front-matter</code>中配置 <code>index_img</code> 属性如下</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">index<span class="hljs-emphasis">_img: [url]</span><br></code></pre></td></tr></table></figure></li></ol><h2 id="给文章加图片"><a href="#给文章加图片" class="headerlink" title="给文章加图片"></a>给文章加图片</h2><ol><li>在<code>_config.yml</code>中设置<code>post_asset_folder: true</code></li><li></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>categories</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>post title</title>
+    <link href="/2025/02/18/post-title/"/>
+    <url>/2025/02/18/post-title/</url>
+    
+    <content type="html"><![CDATA[<h2 id="这是第一篇文章"><a href="#这是第一篇文章" class="headerlink" title="这是第一篇文章"></a>这是第一篇文章</h2><p>了解学习如何使用hexo创建文章</p><p>使用hexo new “post-title” 创建一个标题为post-title的md格式的文章<br>使用hexo new draft “draft title” 创建一个标题为draft title的草稿文章<br>使用hexo new page “page title” 创建一个标题为page title的纯页面</p><p>这三个页面的模板都在scaffolds文件夹下</p><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><ol><li>有序列表</li><li>有序列表</li></ol><p>使用hexo g 生成网页</p><p>使用hexo s 运行服务器</p><h3 id="hexo-官方文档"><a href="#hexo-官方文档" class="headerlink" title="hexo 官方文档"></a>hexo 官方文档</h3><p><a href="https://hexo.io/zh-cn/docs/front-matter">https://hexo.io/zh-cn/docs/front-matter</a></p><h3 id="fluid-官方文档"><a href="#fluid-官方文档" class="headerlink" title="fluid 官方文档"></a>fluid 官方文档</h3><p><a href="https://hexo.fluid-dev.com/docs/guide/">https://hexo.fluid-dev.com/docs/guide/</a></p><h3 id="美化fluid主题"><a href="#美化fluid主题" class="headerlink" title="美化fluid主题"></a>美化fluid主题</h3><ol><li><a href="https://mrna16.github.io/2024/11/14/%E3%80%90Hexo%E3%80%91Fluid%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">https://mrna16.github.io/2024/11/14/%E3%80%90Hexo%E3%80%91Fluid%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</a></li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>tag</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2025/02/18/hello-world/"/>
     <url>/2025/02/18/hello-world/</url>
