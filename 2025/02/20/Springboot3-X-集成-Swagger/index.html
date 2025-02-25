@@ -19,16 +19,16 @@
   <meta name="author" content="xzy">
   <meta name="keywords" content="web, http">
   
-    <meta name="description" content="Springboot3.X 集成 Swagger 去CSDN查看博主的同款文章。  第一步：创建一个springboot3.X的项目（直接省略，不会的看这里快速搭建SpringBoot3.x项目 - xiezhr - 博客园 (cnblogs.com)） 第二步：引入Swagger依赖 123456&lt;!--Swagger--&gt;&lt;dependency&gt;    &lt;grou">
+    <meta name="description" content="简述Spring Boot 3.X集成Swagger与Knife4j的步骤：引入对应依赖，配置OpenAPI类定义文档信息，通过注解标注Controller接口，并验证访问路径。Knife4j作为Swagger增强工具需JDK≥17，支持OpenAPI3规范。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Springboot3.X 集成 Swagger">
 <meta property="og:url" content="http://example.com/2025/02/20/Springboot3-X-%E9%9B%86%E6%88%90-Swagger/index.html">
 <meta property="og:site_name" content="理想の博客">
-<meta property="og:description" content="Springboot3.X 集成 Swagger 去CSDN查看博主的同款文章。  第一步：创建一个springboot3.X的项目（直接省略，不会的看这里快速搭建SpringBoot3.x项目 - xiezhr - 博客园 (cnblogs.com)） 第二步：引入Swagger依赖 123456&lt;!--Swagger--&gt;&lt;dependency&gt;    &lt;grou">
+<meta property="og:description" content="简述Spring Boot 3.X集成Swagger与Knife4j的步骤：引入对应依赖，配置OpenAPI类定义文档信息，通过注解标注Controller接口，并验证访问路径。Knife4j作为Swagger增强工具需JDK≥17，支持OpenAPI3规范。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/bizhi_02.jpg">
 <meta property="article:published_time" content="2025-02-20T09:23:28.000Z">
-<meta property="article:modified_time" content="2025-02-21T08:31:18.921Z">
+<meta property="article:modified_time" content="2025-02-25T14:26:42.145Z">
 <meta property="article:author" content="XZY">
 <meta property="article:tag" content="Springboot">
 <meta property="article:tag" content="Swagger">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          418 字
+          474 字
         
       </span>
     
@@ -295,7 +295,12 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Springboot3-X-集成-Swagger"><a href="#Springboot3-X-集成-Swagger" class="headerlink" title="Springboot3.X 集成 Swagger"></a>Springboot3.X 集成 Swagger</h2><blockquote>
+                <blockquote>
+<p>简述Spring Boot 3.X集成Swagger与Knife4j的步骤：引入对应依赖，配置OpenAPI类定义文档信息，通过注解标注Controller接口，并验证访问路径。Knife4j作为Swagger增强工具需JDK≥17，支持OpenAPI3规范。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Springboot3-X-集成-Swagger"><a href="#Springboot3-X-集成-Swagger" class="headerlink" title="Springboot3.X 集成 Swagger"></a>Springboot3.X 集成 Swagger</h2><blockquote>
 <p>去<a target="_blank" rel="noopener" href="https://blog.csdn.net/XZY__one/article/details/139420345?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22139420345%22,%22source%22:%22XZY__one%22%7D">CSDN</a>查看博主的同款文章。</p>
 </blockquote>
 <p>第一步：创建一个springboot3.X的项目（直接省略，不会的看这里<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiezhr/p/17708711.html">快速搭建SpringBoot3.x项目 - xiezhr - 博客园 (cnblogs.com)</a>）</p>
