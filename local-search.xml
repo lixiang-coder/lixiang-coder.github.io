@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>deepseek 本地部署</title>
+    <link href="/2025/03/04/deepseek%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"/>
+    <url>/2025/03/04/deepseek%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>纯新手教学，手把手带你在本地部署一个私有的 deepseek ，再也不用受网络影响。</p></blockquote><span id="more"></span><h1 id="deepseek-本地部署"><a href="#deepseek-本地部署" class="headerlink" title="deepseek 本地部署"></a>deepseek 本地部署</h1><h2 id="Ollama-下载安装"><a href="#Ollama-下载安装" class="headerlink" title="Ollama 下载安装"></a>Ollama 下载安装</h2><ol><li><p>Ollama官网指路：<a href="https://ollama.com/">Ollama</a>，下载这步都会就没必要截图了，如果下载的慢建议科学上网，多试试。</p></li><li><p>在C盘以外的盘新建一个<code>Ollama</code> 文件夹存放ollama的安装位置（为什么要这样做，因为ollama不能指定安装位置）。</p></li><li><p>注意下载完成后不要立刻点击安装，将下载的可行性程序（OllamaSetup.exe）在文件资源管理器中打开，输入cmd</p><p><img src="https://cdn.xzynet.top/deepseek/image-20250303232507110.png" alt="image-20250303232507110"></p></li><li><p>在命令行中执行如下命令：<code>ollamasetup.exe /DIR=+文件夹路径</code>，这个文件夹的路径就是你创建的<code>Ollama</code>文件夹。</p><img src="https://cdn.xzynet.top/deepseek/image-20250303232945622.png" alt="image-20250303232945622" style="zoom:50%;" /></li><li><p>指定位置安装后如下图所示：</p><p><img src="https://cdn.xzynet.top/deepseek/image-20250303233043819.png" alt="image-20250303233043819"></p></li><li><p>现在要修改模型默认下载的位置（因为模型下载也是默认在C盘的，但是一般模型体积会很大，C盘吃不消的），在C盘以外的盘新建一个<code>ollamaimagers</code> 文件夹存放ollama的安装位置。</p></li><li><p>编辑系统环境变量：<code>OLLAMA_MODELS</code>，完成后，保存重启电脑，让环境变量生效。</p><p><img src="https://cdn.xzynet.top/deepseek/image-20250303233607377.png" alt="image-20250303233607377"></p></li></ol><p>小结：现在已经完成了Ollama指定位置的安装，和模型指定位置的安装</p><h2 id="模型下载"><a href="#模型下载" class="headerlink" title="模型下载"></a>模型下载</h2><ol><li><p>模型网址链接：<a href="https://ollama.com/library/deepseek-r1">deepseek-r1</a></p></li><li><p>根据你自己的电脑配置，选择合适的模型进行下载，笔者这里使用的为1.5b模型，在命令行窗口中输入：<code>ollama run deepseek-r1:1.5b</code></p><img src="https://cdn.xzynet.top/deepseek/image-20250303234340579.png" alt="image-20250303234340579" style="zoom:50%;" /></li><li><p>中途如果下载很慢，可以按<code>ctrl + c</code>结束下载，再运行模型下载的命令，会接着继续下载。</p><img src="https://cdn.xzynet.top/deepseek/image-20250303234553432.png" alt="image-20250303234553432" style="zoom:50%;" /></li><li><p>成功下载后，即可与本地deepseek对话。</p></li></ol><h3 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h3><p>这是由deepseek推荐的各个模型的显卡配置：</p><table><thead><tr><th align="left">模型规模</th><th align="left">推荐显存（推理）</th><th align="left">推荐显卡（推理）</th><th align="left">推荐显存（训练）</th><th align="left">推荐显卡（训练）</th><th align="left">备注</th></tr></thead><tbody><tr><td align="left"><strong>1.5B</strong></td><td align="left">≥4GB</td><td align="left">GTX 1660 (6GB)、RTX 3050 (8GB)</td><td align="left">≥8GB</td><td align="left">RTX 3060 (12GB)、RTX 2080 Ti (11GB)</td><td align="left">FP16推理，训练需额外显存。</td></tr><tr><td align="left"><strong>7B</strong></td><td align="left">≥16GB</td><td align="left">RTX 3090 (24GB)、RTX 4090 (24GB)</td><td align="left">≥24GB</td><td align="left">单卡A100 40GB、双RTX 3090（并行）</td><td align="left">无量化时需24GB显存；4位量化可降至约8GB，单卡RTX 3090即可推理。</td></tr><tr><td align="left"><strong>8B</strong></td><td align="left">≥16GB</td><td align="left">RTX 3090 (24GB)、Tesla T4 (16GB)</td><td align="left">≥32GB</td><td align="left">双A100 40GB（并行）</td><td align="left">需注意T4可能因带宽不足导致速度较慢。</td></tr><tr><td align="left"><strong>14B</strong></td><td align="left">≥28GB</td><td align="left">单卡A100 40GB、双RTX 3090（并行）</td><td align="left">≥56GB</td><td align="left">双A100 40GB（并行）或四RTX 3090</td><td align="left">4位量化推理需约14GB，单卡RTX 3090可运行。</td></tr><tr><td align="left"><strong>32B</strong></td><td align="left">≥64GB（FP16）</td><td align="left">双A100 40GB（并行）、四RTX 3090</td><td align="left">≥128GB</td><td align="left">四A100 80GB集群、多卡H100</td><td align="left">需模型并行；4位量化后显存降至约32GB，单A100 40GB可推理。</td></tr><tr><td align="left"><strong>70B</strong></td><td align="left">≥140GB（FP16）</td><td align="left">四A100 40GB（并行）</td><td align="left">≥280GB</td><td align="left">专业集群（如8xA100 80GB）</td><td align="left">4位量化后显存约35GB，单A100 40GB可推理，但需优化库（如vLLM）。</td></tr><tr><td align="left"><strong>671B</strong></td><td align="left">≥1.3TB（FP16）</td><td align="left">大规模分布式系统（如TPU Pod）</td><td align="left">≥2.6TB</td><td align="left">超算集群（数百张A100&#x2F;H100）</td><td align="left">仅限企业和研究机构；需分布式训练框架（如DeepSpeed、Megatron-LM）。</td></tr></tbody></table><h2 id="Ollama-命令"><a href="#Ollama-命令" class="headerlink" title="Ollama 命令"></a>Ollama 命令</h2><ol><li>输入<code>ollama help</code>，即可看到命令帮助，这里最常用的命令就是：<code>ollama list</code> 和<code>ollama run</code></li><li><code>ollama list</code>：查看下载的所有模型</li><li><code>ollama run</code>：运行你下再的模型，命令后面跟模型的名称，如：<code>ollama run deepseek-r1:1.5b</code>，即可重新开始对话。</li><li><code>ollama rm</code>：删除模型，命令后面跟模型的名称，如：<code>ollama rm deepseek-r1:1.5b</code>。</li></ol><p><img src="https://cdn.xzynet.top/deepseek/image-20250303235021310.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>AI</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>deepseek</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux</title>
     <link href="/2025/02/23/Linux/"/>
     <url>/2025/02/23/Linux/</url>
