@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xzy">
+  <meta name="keywords" content="web, http">
+  
+    <meta name="description" content="前后端部署项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署项目">
+<meta property="og:url" content="http://example.com/2025/03/11/%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="理想の博客">
+<meta property="og:description" content="前后端部署项目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.xzynet.top/Wallpaper/bizhi_11.jpg">
+<meta property="article:published_time" content="2025-03-10T16:04:31.000Z">
+<meta property="article:modified_time" content="2025-03-10T16:05:04.691Z">
+<meta property="article:author" content="XZY">
+<meta property="article:tag" content="EncryptedTag">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.xzynet.top/Wallpaper/bizhi_11.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>部署项目 - 理想の博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/links.css">
+<link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>XZY&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://tigogx6eg1u.feishu.cn/wiki/GxBLwC043iPX0xkNJUPcpABKnfc" target="_blank">
+                <i class="iconfont icon-pen"></i>
+                <span>随笔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="部署项目"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-11 00:04" pubdate>
+          2025年3月11日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          本文总阅读量：<span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">部署项目</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>前后端部署项目</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="部署项目-liunx"><a href="#部署项目-liunx" class="headerlink" title="部署项目 liunx"></a>部署项目 liunx</h1><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="软件安装方式"><a href="#软件安装方式" class="headerlink" title="软件安装方式"></a>软件安装方式</h3><p>在Linux系统中，安装软件的方式主要有四种，这四种安装方式的特点如下：</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310233120674.png" srcset="/img/loading.gif" lazyload alt="image-20250310233120674"></p>
+<blockquote>
+<p>建议nginx、MySQL、Redis等等使用docker安装，会很便捷，这里只演示JDK、ngxin手动的安装</p>
+</blockquote>
+<h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p>上述我们介绍了Linux系统软件安装的四种形式，接下来我们就通过第一种(二进制发布包)形式来安装JDK。 JDK对应的二进制发布包：<code>jdk-17.0.12_linux-x64_bin.tar.gz</code>一般为gz格式的文件。</p>
+<p><strong>1). 上传安装包</strong></p>
+<p>使用FinalShell自带的上传工具将jdk的二进制发布包上传到Linux</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310233305440.png" srcset="/img/loading.gif" lazyload alt="image-20250310233305440"></p>
+<p>由于上述在进行文件上传时，选择的上传目录 &#x2F;root，上传完毕后，我们执行指令 cd &#x2F;root 切换到根目录下，查看上传的安装包。</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310233317191.png" srcset="/img/loading.gif" lazyload alt="image-20250310233317191"></p>
+<p><strong>2). 解压安装包</strong></p>
+<p>执行如下指令，将上传上来的压缩包进行解压，并通过-C参数指定解压文件存放目录为 &#x2F;usr&#x2F;local。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Shell">tar -zxvf jdk-17.0.12_linux-x64_bin.tar.gz -C /usr/local/<br></code></pre></td></tr></table></figure>
+
+<p><strong>3). 配置环境变量</strong></p>
+<p>使用vim命令修改<code>/etc/profile</code>文件，在文件末尾加入如下配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Shell">export JAVA_HOME=/usr/local/jdk-17.0.12<br>export PATH=$JAVA_HOME/bin:$PATH<br></code></pre></td></tr></table></figure>
+
+<p>具体操作指令如下: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs Shell">1). 编辑/etc/profile文件，进入命令模式<br>    vim /etc/profile<br><br>2). 在命令模式中，输入指令 G ， 切换到文件最后<br>    G<br><br>3). 在命令模式中输入 i/a/o 进入插入模式，然后切换到文件最后一行<br>    i<br><br>4). 将上述的配置拷贝到文件中<br>    export JAVA_HOME=/usr/local/jdk-17.0.12<br>    export PATH=$JAVA_HOME/bin:$PATH<br>        <br>5). 从插入模式，切换到指令模式<br>    ESC<br>        <br>6). 按:进入底行模式，然后输入wq，回车保存<br>    :wq<br></code></pre></td></tr></table></figure>
+
+<p><strong>4). 重新加载profile文件</strong></p>
+<p>为了使更改的配置立即生效，需要重新加载profile文件，执行命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Shell">source /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p><strong>5). 检查安装是否成功</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Shell">java -version<br></code></pre></td></tr></table></figure>
+
+<p>输出版本号即为成功~~</p>
+<h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>Nginx的安装包，从官方下载下来的是c语言的源码包，我们需要自己编译安装。具体操作步骤如下：</p>
+<p>1). 安装Nginx运行时需要的依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y pcre pcre-devel zlib zlib-devel openssl openssl-devel<br></code></pre></td></tr></table></figure>
+
+<p>安装C语言的编译环境.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install gcc-c++<br></code></pre></td></tr></table></figure>
+
+<p>2). 上传Nginx的源码包（指路：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">nginx: download</a>）</p>
+<img src="https://cdn.xzynet.top/docker/image-20250310231501080.png" srcset="/img/loading.gif" lazyload alt="image-20250310231501080" style="zoom:50%;" />
+
+<p>3). 解压源码包到当前目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -zxvf nginx-1.20.2.tar.gz<br></code></pre></td></tr></table></figure>
+
+<p>4). 进入到解压目录后，执行指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">进入解压目录</span><br>cd nginx-1.20.2<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">执行命令配置, 生成Makefile文件</span><br>./configure --prefix=/usr/local/nginx<br></code></pre></td></tr></table></figure>
+
+<p>5). 执行命令进行编译和安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">编译</span><br>make<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">编译安装</span><br>make install<br></code></pre></td></tr></table></figure>
+
+<h4 id="启动Nginx"><a href="#启动Nginx" class="headerlink" title="启动Nginx"></a>启动Nginx</h4><p>进入到nginx安装目录<code>/usr/local/nginx</code>，启动nginx服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Shell">cd /usr/local/nginx/<br>sbin/nginx<br></code></pre></td></tr></table></figure>
+
+<p>启动完毕之后，我们可以通过 <code>ps</code> 指令查询当前系统中的nginx进程，从而确认nginx是否启动 。</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310231658635.png" srcset="/img/loading.gif" lazyload alt="image-20250310231658635"></p>
+<p>然后，我们就可以打开浏览器，访问服务器上的nginx 。</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310231643073.png" srcset="/img/loading.gif" lazyload alt="image-20250310231643073"></p>
+<h2 id="后端项目部署"><a href="#后端项目部署" class="headerlink" title="后端项目部署"></a>后端项目部署</h2><p>之前我们讲解Linux操作系统时，就提到，我们服务端开发工程师学习Linux系统的目的就是将来我们开发的项目绝大部分情况下都需要部署在Linux系统中。</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>那现在，项目要上线了，要部署到linux服务器上了，我们也需要使用linux服务器上所安装的mysql数据库。</p>
+<p>那此时，我们就可以再准备一份文件 <code>application.yml</code> 将里面的配置的mysql的ip、redis的ip地址及相关配置信息修改一下（配置Linux上安装的MySQL、Redis的信息）：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment">#配置数据库连接信息</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://192.168.100.128:3306/tlias</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-number">1234</span><br>  <span class="hljs-attr">servlet:</span><br>    <span class="hljs-attr">multipart:</span><br>      <span class="hljs-attr">max-file-size:</span> <span class="hljs-string">10MB</span> <span class="hljs-comment">#单个文件最大大小限制10MB</span><br>      <span class="hljs-attr">max-request-size:</span> <span class="hljs-string">100MB</span> <span class="hljs-comment">#单个请求最大大小限制100MB</span><br>    <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.100</span><span class="hljs-number">.128</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-number">159357</span><br>    <span class="hljs-attr">timeout:</span> <span class="hljs-string">10s</span>     <span class="hljs-comment"># 连接超时时间</span><br>    <span class="hljs-attr">lettuce:</span><br>      <span class="hljs-attr">pool:</span><br>        <span class="hljs-comment"># 连接池中的最小空闲连接</span><br>        <span class="hljs-attr">min-idle:</span> <span class="hljs-number">0</span><br>        <span class="hljs-comment"># 连接池中的最大空闲连接</span><br>        <span class="hljs-attr">max-idle:</span> <span class="hljs-number">8</span><br>        <span class="hljs-comment"># 连接池的最大数据库连接数</span><br>        <span class="hljs-attr">max-active:</span> <span class="hljs-number">8</span><br>        <span class="hljs-comment"># #连接池最大阻塞等待时间（使用负值表示没有限制）</span><br>        <span class="hljs-attr">max-wait:</span> <span class="hljs-string">-1ms</span><br></code></pre></td></tr></table></figure>
+
+<p>改造完毕之后，可以在本地的idea中先启动当前项目，然后访问一下，看看工程是否正常访问。</p>
+<h3 id="打包部署"><a href="#打包部署" class="headerlink" title="打包部署"></a>打包部署</h3><p>1). 执行 <code>package</code> 指令，进行打包操作，将当前的springboot项目，打成一个jar包。 (<strong>跳过测试</strong>)</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310232149507.png" srcset="/img/loading.gif" lazyload alt="image-20250310232149507"></p>
+<p>2). 在Linux服务器上创建一个目录，将jar包上传到服务器 。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs YAML"><span class="hljs-string">mkdir</span> <span class="hljs-string">-p</span> <span class="hljs-string">/usr/local/app</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.xzynet.top/docker/image-20250310232218427.png" srcset="/img/loading.gif" lazyload alt="image-20250310232218427"></p>
+<p>3). 通过java命令，启动项目</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs YAML"><span class="hljs-comment">#进入目录/usr/local/app </span><br><span class="hljs-string">cd</span> <span class="hljs-string">/usr/local/app</span><br><br><span class="hljs-comment">#运行jar包</span><br><span class="hljs-string">java</span> <span class="hljs-string">-jar</span> <span class="hljs-string">tlias-web-management-0.0.1-SNAPSHOT.jar</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.xzynet.top/docker/image-20250310232243697.png" srcset="/img/loading.gif" lazyload alt="image-20250310232243697"></p>
+<p>项目启动起来之后，就可以打开浏览器测试啦**（使用服务器的ip访问）**。</p>
+<h3 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h3><p>1). 后台运行程序</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs YAML"><span class="hljs-string">nohup</span> <span class="hljs-string">java</span> <span class="hljs-string">-jar</span> <span class="hljs-string">tlias-web-management-0.0.1-SNAPSHOT.jar</span> <span class="hljs-string">&amp;&gt;</span> <span class="hljs-string">tlias.log</span> <span class="hljs-string">&amp;</span><br></code></pre></td></tr></table></figure>
+
+<p>通过上述指令就可以后台运行服务，服务运行之后， 所有的日志信息都会输出到 tlias.log 文件中。</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310232512371.png" srcset="/img/loading.gif" lazyload alt="image-20250310232512371"></p>
+<p>2). 停止服务</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs YAML"><span class="hljs-comment">#查看服务的进程信息</span><br><span class="hljs-string">ps</span> <span class="hljs-string">-ef|grep</span> <span class="hljs-string">tlias</span><br><br><span class="hljs-comment">#杀掉进程</span><br><span class="hljs-string">kill</span> <span class="hljs-number">-9</span> <span class="hljs-string">xxxxx</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.xzynet.top/docker/image-20250310232525532.png" srcset="/img/loading.gif" lazyload alt="image-20250310232525532"></p>
+<p>目前程序运行的问题</p>
+<ul>
+<li>线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</li>
+<li>线上程序不会将日志输出到控制台，而是输出到日志文件，方便运维查阅信息</li>
+</ul>
+<blockquote>
+<p>nohup命令：英文全称no hang up(不挂起)，用于不挂断地运行指定命令，退出终端不会影响程序的运行。</p>
+<p>语法格式：<code>nohup Command[Arg...][&amp;]</code></p>
+<p>参数说明：</p>
+<ul>
+<li>Command：要执行的命令</li>
+<li>Arg：一些参数，可以指定输出文件</li>
+<li>&amp;：让命令在后台运行</li>
+</ul>
+<p>举例：<code>nohup java -jar hello-0.0.1-SNAPSHOT.jar &amp;&gt; xzy.log &amp;</code></p>
+<p>后台运行java-jar命令，并将日志输出到xzy.log文件</p>
+<p>想要停掉项目，先查询项目占用的端口号：<code>ps -ef | grep java </code>。然后杀掉这个进制即可：<code>kill -9 xxxx</code></p>
+</blockquote>
+<h2 id="前端项目部署"><a href="#前端项目部署" class="headerlink" title="前端项目部署"></a>前端项目部署</h2><p>1). 将nginx的安装目录的html中的静态资源文件先删除掉。</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310231828437.png" srcset="/img/loading.gif" lazyload alt="image-20250310231828437"></p>
+<p>2).将打包好的<code>dist</code>静态资源文件，全部上传到nginx安装目录下的 html 目录中.</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310231840536.png" srcset="/img/loading.gif" lazyload alt="image-20250310231840536"></p>
+<p>3). 修改资料中提供的 <code>nginx.conf</code> 配置文件，将其上传到nginx安装目录下的 conf 目录中.</p>
+<p><img src="https://cdn.xzynet.top/docker/image-20250310231904149.png" srcset="/img/loading.gif" lazyload alt="image-20250310231904149"></p>
+<p>4). 重新加载nginx服务的配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">重新加载配置文件</span><br>sbin/nginx -s reload<br></code></pre></td></tr></table></figure>
+
+<p>5). 再次访问nginx (可能会存在浏览器缓存, 可以按Ctrl+F5，强制刷新清理缓存)</p>
+<blockquote>
+<p><strong>nginx服务常见操作指令:</strong> </p>
+<ul>
+<li>启动: sbin&#x2F;nginx</li>
+<li>重载: sbin&#x2F;nginx -s reload</li>
+<li>停止: sbin&#x2F;nginx -s stop</li>
+</ul>
+</blockquote>
+<h1 id="部署项目-Docker"><a href="#部署项目-Docker" class="headerlink" title="部署项目 Docker"></a>部署项目 Docker</h1><p>todo</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/web/" class="category-chain-item">web</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/EncryptedTag/" class="print-no-link">#EncryptedTag</a>
+      
+        <a href="/tags/web/" class="print-no-link">#web</a>
+      
+        <a href="/tags/http/" class="print-no-link">#http</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>部署项目</div>
+      <div>http://example.com/2025/03/11/部署项目/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>xzy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/07/%E6%A1%86%E6%9E%B6/" title="SSM框架 面试题">
+                        <span class="hidden-mobile">SSM框架 面试题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <!-- 博客上线天数 --> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> <!-- 一言功能 --> </div> <div class="statistics"> <a target="_blank" rel="noopener" href="https://developer.hitokoto.cn/" id="hitokoto_text"><span id="hitokoto"></span></a> <script src="https://v1.hitokoto.cn/?c=h&c=i&c=k&encode=js&select=%23hitokoto" defer></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      陕ICP备2023020809号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=陕ICP备2023020809号"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>陕ICP备2023020809号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
